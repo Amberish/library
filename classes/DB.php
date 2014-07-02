@@ -4,7 +4,8 @@ class DB {
 
 	private static $_instance = null;
 
-	private $_pdo, 
+	private $_uid,
+			$_pdo, 
 			$_query,
 			$_error = false, 
 			$_results,

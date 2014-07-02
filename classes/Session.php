@@ -8,7 +8,7 @@ class Session {
 
 	/*3rd parameter account for encryption. If true then data is encrypted.*/
 	public static function put($name, $value, $encrypt = false){
-
+		
 		if($encrypt){
 			return $_SESSION[$name] = Encryption::encrypt($value);
 		} 

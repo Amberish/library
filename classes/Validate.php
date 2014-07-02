@@ -52,6 +52,31 @@ class Validate {
 								$this->addError("{$label} already exists.");
 							}
 							break;
+
+						case 'value_not':
+							if($rule_value === $value){
+								$this->addError("Please select {$label}.");
+							}
+							break;
+
+						case 'type':
+							$count = 0;
+							switch ($rule_value) {
+								case 'int':
+									if(!is_int($value)) {
+										$count++;
+									}
+									break;
+								case 'float':
+									if(!is_float($value)) {
+										$count++;
+									}
+									break;
+							}
+							if($count > 0){
+								$this->addError("{$label} is not in correct format.");
+							}							
+							break;
 					}
 
 				}

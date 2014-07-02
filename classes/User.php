@@ -40,10 +40,21 @@ class User {
 		}
 	}
 
-	public function create($fields = array()){
-		if(!$this->_db->insert('users', $fields)){
+	public function create($fields = array(), $table = 'users'){
+		if(!$this->_db->insert($table, $fields)){
 			throw new Exception('There was a problem creating an account.');
 		}
+
+		return $this;
+	}
+
+	private function lastUser(){
+		$sql = 'Select * FROM  `users` ORDER BY `id` DESC';
+		return $this->_db->query($sql)->first();
+	}
+
+	public function lastUserId(){
+		return $this->lastUser()->id;
 	}
 
 	public function find($user = null){

@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', true);
 require_once 'core/init.php';
 
 if(Session::exists('home')){
@@ -27,3 +27,5 @@ if($user->isLoggedIn()){
 	echo '<p>You need to <a href="login.php" >log in</a> or <a href="register.php">register</a></p>';
 }
 
+HTML::dropDown(array('h' => 'hello', 'ho' => 'how', 'a' => 'are', 'u' => 'you'), 3,
+						  array('class' => 'user', 'id' => 'new'));
